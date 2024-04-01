@@ -6,8 +6,8 @@
 template<typename T, int size>
 class TStack {
  private:
-    const int Ksize = size;
-    T arr[Ksize];
+    const int size = size;
+    T arr[size];
     int top;
 
  public:
@@ -23,7 +23,7 @@ class TStack {
         return top == 0;
     }
     bool isFull() {
-        return top == Ksize - 1;
+        return top == size - 1;
     }
     T pop() {
         if (top > 0) {
@@ -33,7 +33,7 @@ class TStack {
         }
     }
     void push(const T& item) {
-        if (top <= Ksize - 1) {
+        if (top <= size - 1) {
             arr[top++] = item;
         } else {
             throw std::string("Full");
