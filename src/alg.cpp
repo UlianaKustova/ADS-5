@@ -93,8 +93,7 @@ int eval(std::string pref) {
     for (int i = 0; i < pref.length(); i++) {
         if ((pref[i] >= '0') && (pref[i] <= '9')) {
             stack2.push(pref[i] - '0');
-        }
-        else if (pref[i] == '+' || pref[i] == '-' || pref[i] == '*' || pref[i] == '/') {
+        } else if (pref[i] != ' ' || (pref[i] < '0') && (pref[i] > '9')) {
             int znak1 = stack2.pop();
             int znak2 = stack2.pop();
             switch (pref[i]) {
