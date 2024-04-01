@@ -1,6 +1,7 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include <map>
+#include "alg.h"
 #include "tstack.h"
 
 std::string infx2pstfx(std::string inf) {
