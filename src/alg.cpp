@@ -98,16 +98,16 @@ int eval(std::string pref) {
             int znak2 = stack2.pop();
             switch (pref[i]) {
             case '+':
-                stack2.push(znak1 + znak2);
+                stack2.push(znak2 + znak1);
                 break;
             case '-':
-                stack2.push(znak1 - znak2);
+                stack2.push(znak2 - znak1);
                 break;
             case '*':
-                stack2.push(znak1 * znak2);
+                stack2.push(znak2 * znak1);
                 break;
             case '/':
-                stack2.push(znak1 / znak2);
+                stack2.push(znak2 / znak1);
                 break;
             }
         }
