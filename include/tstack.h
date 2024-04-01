@@ -4,7 +4,7 @@
 
 template<typename T, int size>
 class TStack {
-  private:
+private:
 	T arr[size];
 	int top;
 public:
@@ -24,14 +24,12 @@ public:
 	T pop() {
 		if (top > 0) {
 			return arr[--top];
-		}
-		else throw std::string("Empty");
+		} else throw std::string("Empty");
 	}
 	void push(const T& item) {
 		if (top <= size - 1) {
 			arr[top++] = item;
-		}
-		else throw std::string("Full");
+		} else throw std::string("Full");
 	}
 };
 
