@@ -89,6 +89,29 @@ std::string infx2pstfx(std::string inf) {
 }
 
 int eval(std::string pref) {
-  // добавьте код
-  return 0;
+    TStack<int, 100> stack2;
+    for (int i = 0; i < pref.length(); i++) {
+        if ((pref[i] >= '0') && (pref[i] <= '9')) {
+            stack2.push(pref[i] - '0');
+        }
+        else if (pref[i] == '+' || pref[i] == '-' || pref[i] == '*' || pref[i] == '/') {
+            int znak1 = stack2.pop();
+            int znak2 = stack2.pop();
+            switch (pref[i]) {
+            case '+':
+                stack2.push(znak1 + znak2);
+                break;
+            case '-':
+                stack2.push(znak1 - znak2);
+                break;
+            case '*':
+                stack2.push(znak1 * znak2);
+                break;
+            case '/':
+                stack2.push(znak1 / znak2);
+                break;
+            }
+        }
+    }
+    return stack2.get();
 }
