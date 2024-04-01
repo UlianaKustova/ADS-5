@@ -12,29 +12,26 @@ public:
     T get() {
         if (!isEmpty()) {
             return arr[top - 1];
-	}
-        else
-	    throw std::string("Empty");
+        } else
+            throw std::string("Empty");
     }
     bool isEmpty() {
-	    return top == 0;
+        return top == 0;
     }
     bool isFull() {
-	    return top == size - 1;
+        return top == size - 1;
     }
     T pop() {
-	if (top > 0) {
-	    return arr[--top];
-	}
-	else
-	    throw std::string("Empty");
+        if (top > 0) {
+            return arr[--top];
+        } else
+            throw std::string("Empty");
     }
     void push(const T& item) {
-	    if (top <= size - 1) {
-	        arr[top++] = item;
-	    }
-	    else
-	        throw std::string("Full");
+        if (top <= size - 1) {
+            arr[top++] = item;
+        } else
+            throw std::string("Full");
     }
 };
 
