@@ -1,4 +1,5 @@
 // Copyright 2021 NNTU-CS
+#include <string>
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
@@ -13,8 +14,9 @@ class TStack {
     T get() {
         if (!isEmpty()) {
             return arr[top - 1];
-        } else
+        } else {
             throw std::string("Empty");
+        }
     }
     bool isEmpty() {
         return top == 0;
