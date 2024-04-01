@@ -8,19 +8,20 @@ std::string infx2pstfx(std::string inf) {
     TStack<char, 100> stack1;
     std::string end;
     for (int i = 0; i < inf.length(); i++) {
-        if (inf[i] == '(') stack1.push(inf[i]);
-        else if ((inf[i] >= '0') && (inf[i] <= '9')) {
+        if (inf[i] == '(') {
+            stack1.push(inf[i]);
+        } else if ((inf[i] >= '0') && (inf[i] <= '9')) {
             end += inf[i];
             end += ' ';
-        }
-        else if (inf[i] == ')') {
+        } else if (inf[i] == ')') {
             while ((!stack1.isEmpty()) && (stack1.get() != '(')) {
                 end += stack1.pop();
                 end += ' ';
             }
-            if (stack1.get() == '(') stack1.pop();
-        }
-        else if (inf[i] == '+' || inf[i] == '-') {
+            if (stack1.get() == '(') {
+                stack1.pop();
+            }
+        } else if (inf[i] == '+' || inf[i] == '-') {
             if (!stack1.isEmpty()) {
                 switch (stack1.get()) {
                     case '*': {
@@ -49,10 +50,10 @@ std::string infx2pstfx(std::string inf) {
                     }
                 }
                 stack1.push(inf[i]);
+            } else {
+                stack1.push(inf[i]);
             }
-            else stack1.push(inf[i]);
-        }
-        else if (inf[i] == '*' || inf[i] == '/') {
+        } else if (inf[i] == '*' || inf[i] == '/') {
             if (!stack1.isEmpty()) {
                 switch (stack1.get()) {
                     case '*': {
@@ -69,8 +70,9 @@ std::string infx2pstfx(std::string inf) {
                     }
                 }
                 stack1.push(inf[i]);
+            } else {
+                stack1.push(inf[i]);
             }
-            else stack1.push(inf[i]);
         }
     }
     if (!stack1.isEmpty()) {
